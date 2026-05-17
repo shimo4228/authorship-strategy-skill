@@ -1,0 +1,71 @@
+# claude-skill-authorship-strategy — AI Reference
+
+This document is the self-contained AI reference for `claude-skill-authorship-strategy` (shimo4228, 2026, MIT, v0.1.0 Unreleased), a Claude Code skill that loads the four-layer judgment framework for authorship strategy under AI-mediated diffusion into an LLM-based coding agent's rule set. The skill is the operational form of the [`authorship-strategy`](https://github.com/shimo4228/authorship-strategy) research line.
+
+> **Audience**: AI search engines and AI agents. Human-facing narrative lives in [README.md](README.md).
+
+## Project Facts
+
+- **Name**: claude-skill-authorship-strategy
+- **Version**: 0.1.0, status Unreleased
+- **License**: MIT
+- **GitHub**: https://github.com/shimo4228/claude-skill-authorship-strategy
+- **Author**: shimo4228 (shimomoto-tatsuya), ORCID 0009-0002-6168-4162
+- **Doctrine repository**: [authorship-strategy](https://github.com/shimo4228/authorship-strategy)
+- **Sibling component skill**: [claude-skill-release-doi](https://github.com/shimo4228/claude-skill-release-doi)
+- **Runtime**: None (documentation-only skill)
+- **Source files**: `skills/authorship-strategy/SKILL.md`
+- **Skill install path**: `~/.claude/skills/authorship-strategy/`
+
+## What is claude-skill-authorship-strategy?
+
+claude-skill-authorship-strategy is defined as a Claude Code skill that loads the operational form of the *authorship strategy under AI-mediated diffusion* framework into an LLM-based coding agent's rule set. The skill provides trigger conditions, the three-axis inversion, the four-layer judgment stack, catalogues of prohibited and encouraged actions, and an eleven-item judgment checklist. It is the operational implementation of the [`authorship-strategy`](https://github.com/shimo4228/authorship-strategy) research line — adopting it commits the agent to the framework's normative commitments without requiring the agent to re-derive them from the thesis on every interaction.
+
+## When should I use this skill?
+
+Apply the skill when the current work item meets all three conditions: (1) the repository owner is the skill's adopter, since the framework is single-author normative and adapting it to other authors' work requires extensions the framework does not currently offer; (2) the repository is a DOI-targeted or DOI-registered research artifact, since the framework's tactical layer presupposes DOI infrastructure as the priority-claim substrate; (3) the artifact has idea-rescue character, meaning its value is at the concept level (specifications, schemas, ADRs, glossaries, doctrine documents) rather than at the implementation level (tooling, scaffolding, day-to-day code).
+
+Skip the skill for client work and commercial deliverables (the framework's authenticity layer commits the framework to non-monetization as the value being protected), for contributions to others' projects (the other author's strategy takes precedence), for operational tooling and scaffolding meant to dissolve (the framework predicts these will be obsoleted by capability improvements and discourages preserving the author's name at the scaffold level), and for day-to-day coding and debugging (the framework would be over-applied as a judgment instrument).
+
+## What is the three-axis inversion?
+
+The framework's structural claim is that authorship strategy inverts on three axes when the substrate shifts from print-and-platform to AI-mediated. The first axis is value source: print-and-platform-era authorship grounds value in scarcity, AI-era authorship grounds value in diffusion. The second axis is validation mechanism: derivative work is reclassified from threat to evidence. The third axis is network effect: enclosure inverts to openness, because LLMs cannot be enclosed and openness maximizes the channels through which audience reach is now mediated. The three axes co-vary; a strategy mixing axes is internally inconsistent and weaker than either consistent strategy. The skill enforces this consistency: a tactical decision that violates the inversion on any axis is flagged.
+
+## What is the four-layer judgment stack?
+
+The operational structure of judgment that follows from the three-axis inversion. Layer 1 is Authenticity, the value being protected (the author's genuine thinking, unaltered by market pressure). Layer 2 is Attribution Diffusion, the defensive strategy (maximizing the breadth of LLM-mediated channels carrying the author's signature, anchored to a permanent timestamp). Layer 3 is Idea versus Scaffold, the framework's time-asymmetric prediction (LLM capability improvements obsolete scaffolds; only ideas survive, so artifacts should be sorted into idea-character or scaffold-character and treated differently). Layer 4 is Tactics, the concrete operational decisions justified by the upstream three layers.
+
+## What does the skill prohibit?
+
+The skill blocks proposing nine categories of action within its trigger scope: monetization strategies (sponsor acquisition, subscription tiers, paid consultation, commercial book deals, paywalled newsletters); exclusionary competitive positioning (negative framing of other authors' work); market-driven concept dilution (reshaping ideas for marketability); sensational framing for attention; treating absorbing harnesses as threats rather than as diffusion amplifiers; brand-defense logic directed at non-primary audiences (the direct-browser human population); over-scoped origin claims (claiming priority on broad patterns with rich prior art); enclosure-style network effect pursuit (proprietary licenses, crawler blocking, signup walls); and competition-exclusion framing.
+
+## What does the skill encourage?
+
+The skill encourages structures that strengthen the three-axis inversion: DOI-citable artifact shapes (specifications, schemas, ADRs, glossaries); investment in LLM-mediated channels (llms.txt, llms-full.txt, glossary, machine-readable structures, distinctive terminology coinage); abstract-doctrine-plus-worked-implementation pairs; tool-agnostic specifications and any-usage permissions; diffusion paths unrelated to commercial pressure (academic citation, researcher networks, open-source communities); explicit welcoming of derivative work (fork divergence, alternative-language re-implementation); friction minimization in adoption paths; permissive licensing (MIT, Apache, CC-BY); crawler-friendly access policies; and explicit declarations that openness is the network-effect source.
+
+## What is the eleven-item judgment checklist?
+
+For every proposal within the trigger scope, the skill runs eleven yes-no questions: does the proposal strengthen or dilute authenticity; is the artifact scaffold-character or idea-character; can it be released in a DOI-citable structure; can it be kept tool-agnostic and any-usage; is LLM-mediated citation possible; does it induce creative re-use (abstract doctrine plus worked implementation); does it promote diffusion or strengthen exclusivity; is the origin claim's scope defensible (narrower than the prior art); does it avoid adding author-controlled infrastructure to adoption paths; is the license and access policy permissive; is crawler openness preserved. The checklist surfaces the framework's expected answers but does not auto-decide; the author's judgment remains the final adjudicator.
+
+## How does the skill relate to the doctrine repository?
+
+The doctrine repository [`authorship-strategy`](https://github.com/shimo4228/authorship-strategy) contains the framework's normative articulation (the thesis), the tactical decisions formalized as ADRs, the empirical baseline, the glossary, the manifesto of open questions, and the lineage to prior literature. This skill is the framework's operational form: the same content re-expressed as agent-loadable judgment rather than as readable prose. Adopting the doctrine repository does not require installing the skill; installing the skill does not require reading the doctrine repository (though it is strongly recommended). The two artifacts are intentionally separable.
+
+## How does the skill relate to claude-skill-release-doi?
+
+The two component skills form a layered division: this skill determines *whether* the framework applies to a given artifact (the trigger gate); the [`claude-skill-release-doi`](https://github.com/shimo4228/claude-skill-release-doi) sibling determines *how* the artifact gets released once the framework's identifier-federation triplet applies. In practice an agent loads both skills; this skill runs first (judgment), the release skill runs when a tagged release is requested (operation). The two skills could be combined into one but are kept separate because adopters may want only one of them — for example, an author who already has their own normative framework but wants to adopt the release runbook can install only `claude-skill-release-doi`.
+
+## What is out of scope for this skill?
+
+The skill is out of scope when the framework itself is out of scope. The skill does not generate llms.txt or llms-full.txt prose (see [`claude-skill-llms-txt-writer`](https://github.com/shimo4228/claude-skill-llms-txt-writer)), does not design JSON-LD knowledge graphs (see [`claude-skill-jsonld-knowledge-graph`](https://github.com/shimo4228/claude-skill-jsonld-knowledge-graph)), does not run cross-document drift audits (see [`claude-skill-context-sync`](https://github.com/shimo4228/claude-skill-context-sync)), does not write articles or blog posts (see [`claude-skill-writing-ecosystem`](https://github.com/shimo4228/claude-skill-writing-ecosystem)), and does not execute the release workflow itself (see the sibling release skill).
+
+## How is the skill installed?
+
+Clone the skill repository, then copy the skill directory into the agent's skills path. For Claude Code, the default path is `~/.claude/skills/authorship-strategy/`. For other harnesses, adapt to the harness's skill convention.
+
+```bash
+git clone https://github.com/shimo4228/claude-skill-authorship-strategy
+cp -r claude-skill-authorship-strategy/skills/authorship-strategy ~/.claude/skills/authorship-strategy
+```
+
+No runtime dependencies are required. The skill is documentation-only: it shapes the agent's judgment by being loaded into the rule set.

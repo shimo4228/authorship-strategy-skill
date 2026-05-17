@@ -1,0 +1,47 @@
+# claude-skill-authorship-strategy
+
+> A Claude Code skill (documentation-only, MIT, v0.1.0 Unreleased) that loads the four-layer judgment framework for *authorship strategy under AI-mediated diffusion* into an LLM-based coding agent's rule set. Operational form of the [`authorship-strategy`](https://github.com/shimo4228/authorship-strategy) research line. Three-axis inversion (scarcity → diffusion, exclusivity → derivation, enclosure → openness) + four-layer judgment stack (Authenticity → Attribution Diffusion → Idea vs Scaffold → Tactics). Single-author normative; applies only to the author's own DOI-targeted idea-rescue research repositories.
+
+## Core documentation
+
+- [SKILL.md](skills/authorship-strategy/SKILL.md): full skill specification — trigger conditions, three-axis inversion as core principle, four-layer judgment framework, eleven-item judgment checklist, prohibited and encouraged actions, scope-limiting conditions
+- [README.md](README.md): human-facing narrative (when to use, install, how it works, key concept)
+- [CHANGELOG.md](CHANGELOG.md): release notes
+
+## Trigger scope
+
+The skill applies when *all* of the following hold:
+
+- Repository owner is the skill's adopter (single-author normative)
+- Repository is a DOI-targeted or DOI-registered research artifact (Zenodo or comparable archive registration intended or in place)
+- Artifact is idea-rescue in character (specifications, schemas, ADRs, glossaries, doctrine; not implementation or scaffolding)
+
+Skips for client work, contributions to others' projects, scaffold-only tooling, day-to-day coding.
+
+## Key concept
+
+The three axes are *not independent*: a strategy mixing axes (enclosure with derivation-welcoming license; scarcity with crawler-friendly access) is internally inconsistent and weaker than either consistent strategy. The skill enforces axis consistency: tactical decisions violating any axis are flagged regardless of local attractiveness.
+
+## Doctrine repository
+
+- [authorship-strategy](https://github.com/shimo4228/authorship-strategy): the normative framework, five tactical ADRs, empirical baseline, glossary, manifesto
+
+## Sibling component skill
+
+- [claude-skill-release-doi](https://github.com/shimo4228/claude-skill-release-doi): the release-time workflow instantiating the framework's identifier-federation triplet (ADRs 0001-0003)
+
+## Related ecosystem skills
+
+- [claude-skill-llms-txt-writer](https://github.com/shimo4228/claude-skill-llms-txt-writer): AI-facing documentation prose
+- [claude-skill-jsonld-knowledge-graph](https://github.com/shimo4228/claude-skill-jsonld-knowledge-graph): JSON-LD knowledge graph design
+- [claude-skill-context-sync](https://github.com/shimo4228/claude-skill-context-sync): cross-document drift audits
+- [claude-skill-writing-ecosystem](https://github.com/shimo4228/claude-skill-writing-ecosystem): human-facing writing orchestrator
+
+## Sibling research lines
+
+The framework is one of four DOI-registered research lines in the author's research program:
+
+- [authorship-strategy](https://github.com/shimo4228/authorship-strategy)
+- [agent-knowledge-cycle (AKC)](https://github.com/shimo4228/agent-knowledge-cycle) — DOI 10.5281/zenodo.19200726
+- [contemplative-agent](https://github.com/shimo4228/contemplative-agent) — DOI 10.5281/zenodo.19212118
+- [agent-attribution-practice (AAP)](https://github.com/shimo4228/agent-attribution-practice) — DOI 10.5281/zenodo.19652013
