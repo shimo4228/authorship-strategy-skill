@@ -61,8 +61,13 @@ The framework's strongest claim is that the three axes are not independent dimen
 ## Related research and skills
 
 - **Doctrine repository**: [authorship-strategy](https://github.com/shimo4228/authorship-strategy) — the normative framework, five tactical ADRs, and empirical baseline this skill is the operational form of
-- **Sibling component skill**: [claude-skill-release-doi](https://github.com/shimo4228/claude-skill-release-doi) — the release-time workflow that instantiates the framework's identifier-federation triplet (ADRs 0001-0003)
-- **Sibling research lines**: [Agent Knowledge Cycle (AKC)](https://github.com/shimo4228/agent-knowledge-cycle), [Contemplative Agent](https://github.com/shimo4228/contemplative-agent), [Agent Attribution Practice (AAP)](https://github.com/shimo4228/agent-attribution-practice)
+- **Peer components** (other component skills of the same framework):
+  - [claude-skill-release-doi](https://github.com/shimo4228/claude-skill-release-doi) — release-time workflow operationalizing the identifier-federation triplet (ADRs 0001-0003)
+  - [claude-skill-llms-txt-writer](https://github.com/shimo4228/claude-skill-llms-txt-writer) — operationalizes Layer 4 tactic 7's Answer.AI `llms.txt` convention
+  - [claude-skill-jsonld-knowledge-graph](https://github.com/shimo4228/claude-skill-jsonld-knowledge-graph) — operationalizes Layer 4 tactic 7's JSON-LD knowledge graph
+- **Sibling research lines** (at the research-program level): [Agent Knowledge Cycle (AKC)](https://github.com/shimo4228/agent-knowledge-cycle), [Contemplative Agent](https://github.com/shimo4228/contemplative-agent), [Agent Attribution Practice (AAP)](https://github.com/shimo4228/agent-attribution-practice)
+
+> **Terminology note.** This ecosystem reserves *sibling* for research-line-level peers; at the component-skill level the term *peer component* is used instead.
 
 ## License
 
