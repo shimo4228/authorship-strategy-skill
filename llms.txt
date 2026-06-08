@@ -1,4 +1,4 @@
-# claude-skill-authorship-strategy
+# authorship-strategy-skill
 
 > A Claude Code skill (documentation-only, MIT, v0.1.0 Unreleased) that loads the four-layer judgment framework for *authorship strategy under AI-mediated diffusion* into an LLM-based coding agent's rule set. Operational form of the [`authorship-strategy`](https://github.com/shimo4228/authorship-strategy) research line. Three-axis inversion (scarcity → diffusion, exclusivity → derivation, enclosure → openness) + four-layer judgment stack (Authenticity → Attribution Diffusion → Idea vs Scaffold → Tactics). Single-author normative; applies only to the author's own DOI-targeted idea-rescue research repositories.
 
@@ -30,17 +30,17 @@ The three axes are *not independent*: a strategy mixing axes (enclosure with der
 
 Other component skills of the same framework:
 
-- [claude-skill-release-doi](https://github.com/shimo4228/claude-skill-release-doi): release-time workflow operationalizing the framework's identifier-federation triplet (ADRs 0001-0003)
-- [claude-skill-llms-txt-writer](https://github.com/shimo4228/claude-skill-llms-txt-writer): operationalizes Layer 4 tactic 7's Answer.AI `llms.txt` convention
-- [claude-skill-jsonld-knowledge-graph](https://github.com/shimo4228/claude-skill-jsonld-knowledge-graph): operationalizes Layer 4 tactic 7's JSON-LD knowledge graph
+- [release-doi](https://github.com/shimo4228/release-doi): release-time workflow operationalizing the framework's identifier-federation triplet (ADRs 0001-0003)
+- [llms-txt-writer](https://github.com/shimo4228/llms-txt-writer): operationalizes Layer 4 tactic 7's Answer.AI `llms.txt` convention
+- [jsonld-knowledge-graph](https://github.com/shimo4228/jsonld-knowledge-graph): operationalizes Layer 4 tactic 7's JSON-LD knowledge graph
 
 Terminology: *sibling* is reserved for research-line-level peers; at the component-skill level the term *peer component* is used.
 
 ## Related ecosystem skills
 
-- [claude-skill-llms-txt-writer](https://github.com/shimo4228/claude-skill-llms-txt-writer): AI-facing documentation prose
-- [claude-skill-jsonld-knowledge-graph](https://github.com/shimo4228/claude-skill-jsonld-knowledge-graph): JSON-LD knowledge graph design
-- [claude-skill-context-sync](https://github.com/shimo4228/claude-skill-context-sync): cross-document drift audits
+- [llms-txt-writer](https://github.com/shimo4228/llms-txt-writer): AI-facing documentation prose
+- [jsonld-knowledge-graph](https://github.com/shimo4228/jsonld-knowledge-graph): JSON-LD knowledge graph design
+- [context-sync](https://github.com/shimo4228/context-sync): cross-document drift audits
 - [claude-skill-writing-ecosystem](https://github.com/shimo4228/claude-skill-writing-ecosystem): human-facing writing orchestrator
 
 ## Sibling research lines

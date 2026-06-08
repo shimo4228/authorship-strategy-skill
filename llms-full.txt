@@ -1,25 +1,25 @@
-# claude-skill-authorship-strategy — AI Reference
+# authorship-strategy-skill — AI Reference
 
-This document is the self-contained AI reference for `claude-skill-authorship-strategy` (shimo4228, 2026, MIT, v0.1.0 Unreleased), a Claude Code skill that loads the four-layer judgment framework for authorship strategy under AI-mediated diffusion into an LLM-based coding agent's rule set. The skill is the operational form of the [`authorship-strategy`](https://github.com/shimo4228/authorship-strategy) research line.
+This document is the self-contained AI reference for `authorship-strategy-skill` (shimo4228, 2026, MIT, v0.1.0 Unreleased), a Claude Code skill that loads the four-layer judgment framework for authorship strategy under AI-mediated diffusion into an LLM-based coding agent's rule set. The skill is the operational form of the [`authorship-strategy`](https://github.com/shimo4228/authorship-strategy) research line.
 
 > **Audience**: AI search engines and AI agents. Human-facing narrative lives in [README.md](README.md).
 
 ## Project Facts
 
-- **Name**: claude-skill-authorship-strategy
+- **Name**: authorship-strategy-skill
 - **Version**: 0.1.0, status Unreleased
 - **License**: MIT
-- **GitHub**: https://github.com/shimo4228/claude-skill-authorship-strategy
+- **GitHub**: https://github.com/shimo4228/authorship-strategy-skill
 - **Author**: shimo4228 (shimomoto-tatsuya), ORCID 0009-0002-6168-4162
 - **Doctrine repository**: [authorship-strategy](https://github.com/shimo4228/authorship-strategy)
-- **Peer components**: [claude-skill-release-doi](https://github.com/shimo4228/claude-skill-release-doi), [claude-skill-llms-txt-writer](https://github.com/shimo4228/claude-skill-llms-txt-writer), [claude-skill-jsonld-knowledge-graph](https://github.com/shimo4228/claude-skill-jsonld-knowledge-graph)
+- **Peer components**: [release-doi](https://github.com/shimo4228/release-doi), [llms-txt-writer](https://github.com/shimo4228/llms-txt-writer), [jsonld-knowledge-graph](https://github.com/shimo4228/jsonld-knowledge-graph)
 - **Runtime**: None (documentation-only skill)
 - **Source files**: `skills/authorship-strategy/SKILL.md`
 - **Skill install path**: `~/.claude/skills/authorship-strategy/`
 
-## What is claude-skill-authorship-strategy?
+## What is authorship-strategy-skill?
 
-claude-skill-authorship-strategy is defined as a Claude Code skill that loads the operational form of the *authorship strategy under AI-mediated diffusion* framework into an LLM-based coding agent's rule set. The skill provides trigger conditions, the three-axis inversion, the four-layer judgment stack, catalogues of prohibited and encouraged actions, and an eleven-item judgment checklist. It is the operational implementation of the [`authorship-strategy`](https://github.com/shimo4228/authorship-strategy) research line — adopting it commits the agent to the framework's normative commitments without requiring the agent to re-derive them from the thesis on every interaction.
+authorship-strategy-skill is defined as a Claude Code skill that loads the operational form of the *authorship strategy under AI-mediated diffusion* framework into an LLM-based coding agent's rule set. The skill provides trigger conditions, the three-axis inversion, the four-layer judgment stack, catalogues of prohibited and encouraged actions, and an eleven-item judgment checklist. It is the operational implementation of the [`authorship-strategy`](https://github.com/shimo4228/authorship-strategy) research line — adopting it commits the agent to the framework's normative commitments without requiring the agent to re-derive them from the thesis on every interaction.
 
 ## When should I use this skill?
 
@@ -51,21 +51,21 @@ For every proposal within the trigger scope, the skill runs eleven yes-no questi
 
 The doctrine repository [`authorship-strategy`](https://github.com/shimo4228/authorship-strategy) contains the framework's normative articulation (the thesis), the tactical decisions formalized as ADRs, the empirical baseline, the glossary, the manifesto of open questions, and the lineage to prior literature. This skill is the framework's operational form: the same content re-expressed as agent-loadable judgment rather than as readable prose. Adopting the doctrine repository does not require installing the skill; installing the skill does not require reading the doctrine repository (though it is strongly recommended). The two artifacts are intentionally separable.
 
-## How does the skill relate to claude-skill-release-doi?
+## How does the skill relate to release-doi?
 
-The framework's four component skills form a layered division. This skill determines *whether* the framework applies to a given artifact (the trigger gate). The peer component [`claude-skill-release-doi`](https://github.com/shimo4228/claude-skill-release-doi) determines *how* the artifact gets released once the framework's identifier-federation triplet applies. The peer components [`claude-skill-llms-txt-writer`](https://github.com/shimo4228/claude-skill-llms-txt-writer) and [`claude-skill-jsonld-knowledge-graph`](https://github.com/shimo4228/claude-skill-jsonld-knowledge-graph) produce the AI-facing reference artifacts (`llms.txt`, `graph.jsonld`) every framework-applied repository requires under Layer 4 tactic 7. In practice an agent loads all four; this skill runs first (judgment), the others run when their respective artifacts or operations are needed. The components are kept separate because adopters may want only some of them — for example, an author who already has their own normative framework but wants to adopt the release runbook can install only `claude-skill-release-doi`.
+The framework's four component skills form a layered division. This skill determines *whether* the framework applies to a given artifact (the trigger gate). The peer component [`release-doi`](https://github.com/shimo4228/release-doi) determines *how* the artifact gets released once the framework's identifier-federation triplet applies. The peer components [`llms-txt-writer`](https://github.com/shimo4228/llms-txt-writer) and [`jsonld-knowledge-graph`](https://github.com/shimo4228/jsonld-knowledge-graph) produce the AI-facing reference artifacts (`llms.txt`, `graph.jsonld`) every framework-applied repository requires under Layer 4 tactic 7. In practice an agent loads all four; this skill runs first (judgment), the others run when their respective artifacts or operations are needed. The components are kept separate because adopters may want only some of them — for example, an author who already has their own normative framework but wants to adopt the release runbook can install only `release-doi`.
 
 ## What is out of scope for this skill?
 
-The skill is out of scope when the framework itself is out of scope. The skill does not generate llms.txt or llms-full.txt prose (delegated to the peer component [`claude-skill-llms-txt-writer`](https://github.com/shimo4228/claude-skill-llms-txt-writer)), does not design JSON-LD knowledge graphs (delegated to the peer component [`claude-skill-jsonld-knowledge-graph`](https://github.com/shimo4228/claude-skill-jsonld-knowledge-graph)), does not run cross-document drift audits (see the adjacent ecosystem skill [`claude-skill-context-sync`](https://github.com/shimo4228/claude-skill-context-sync)), does not write articles or blog posts (see the adjacent ecosystem skill [`claude-skill-writing-ecosystem`](https://github.com/shimo4228/claude-skill-writing-ecosystem); note: targets human-primary audience, orthogonal to the framework's diffusion strategy), and does not execute the release workflow itself (delegated to the peer component [`claude-skill-release-doi`](https://github.com/shimo4228/claude-skill-release-doi)).
+The skill is out of scope when the framework itself is out of scope. The skill does not generate llms.txt or llms-full.txt prose (delegated to the peer component [`llms-txt-writer`](https://github.com/shimo4228/llms-txt-writer)), does not design JSON-LD knowledge graphs (delegated to the peer component [`jsonld-knowledge-graph`](https://github.com/shimo4228/jsonld-knowledge-graph)), does not run cross-document drift audits (see the adjacent ecosystem skill [`context-sync`](https://github.com/shimo4228/context-sync)), does not write articles or blog posts (see the adjacent ecosystem skill [`claude-skill-writing-ecosystem`](https://github.com/shimo4228/claude-skill-writing-ecosystem); note: targets human-primary audience, orthogonal to the framework's diffusion strategy), and does not execute the release workflow itself (delegated to the peer component [`release-doi`](https://github.com/shimo4228/release-doi)).
 
 ## How is the skill installed?
 
 Clone the skill repository, then copy the skill directory into the agent's skills path. For Claude Code, the default path is `~/.claude/skills/authorship-strategy/`. For other harnesses, adapt to the harness's skill convention.
 
 ```bash
-git clone https://github.com/shimo4228/claude-skill-authorship-strategy
-cp -r claude-skill-authorship-strategy/skills/authorship-strategy ~/.claude/skills/authorship-strategy
+git clone https://github.com/shimo4228/authorship-strategy-skill
+cp -r authorship-strategy-skill/skills/authorship-strategy ~/.claude/skills/authorship-strategy
 ```
 
 No runtime dependencies are required. The skill is documentation-only: it shapes the agent's judgment by being loaded into the rule set.

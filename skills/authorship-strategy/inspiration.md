@@ -26,7 +26,7 @@ skill without inheriting the original sibling-line content.
 ## Canonical doctrine repository
 
 The skill's operational form lives in this repository
-(`claude-skill-authorship-strategy`). The framework's *normative
+(`authorship-strategy-skill`). The framework's *normative
 articulation* — the full thesis, the five tactical ADRs, the empirical
 baseline, the glossary, the manifesto of open questions, and the
 lineage to prior literature — lives in the doctrine repository:
@@ -44,8 +44,8 @@ judgment from the thesis on every interaction.
 Two existing skills in the author's ecosystem informed the operational
 shape of this one:
 
-- [`claude-skill-jsonld-knowledge-graph`](https://github.com/shimo4228/claude-skill-jsonld-knowledge-graph) and [`claude-skill-llms-txt-writer`](https://github.com/shimo4228/claude-skill-llms-txt-writer) supplied the *AI-facing documentation* tactics that became Layer 4 entries in the framework. The skill assumes both are installed when the framework's tactics call for `llms.txt` / `graph.jsonld` artifacts.
-- [`claude-skill-context-sync`](https://github.com/shimo4228/claude-skill-context-sync) supplied the *cross-document drift detection* discipline that the framework's maintenance layer presupposes. The framework treats drift as a structural failure mode rather than as a one-time defect.
+- [`jsonld-knowledge-graph`](https://github.com/shimo4228/jsonld-knowledge-graph) and [`llms-txt-writer`](https://github.com/shimo4228/llms-txt-writer) supplied the *AI-facing documentation* tactics that became Layer 4 entries in the framework. The skill assumes both are installed when the framework's tactics call for `llms.txt` / `graph.jsonld` artifacts.
+- [`context-sync`](https://github.com/shimo4228/context-sync) supplied the *cross-document drift detection* discipline that the framework's maintenance layer presupposes. The framework treats drift as a structural failure mode rather than as a one-time defect.
 
 ## Lineage to memory
 

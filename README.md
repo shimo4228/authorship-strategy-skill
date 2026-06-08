@@ -1,4 +1,4 @@
-# claude-skill-authorship-strategy
+# authorship-strategy-skill
 
 A [Claude Code skill](https://docs.claude.com/en/docs/claude-code/skills) that loads the four-layer judgment framework for **authorship strategy under AI-mediated diffusion** into an LLM-based coding agent's rule set. Provides the operational form (trigger conditions, judgment checklist, prohibited and encouraged actions) of the normative framework articulated in the [`authorship-strategy`](https://github.com/shimo4228/authorship-strategy) research line.
 
@@ -26,8 +26,8 @@ When in doubt, the framework defers to the author's explicit judgment rather tha
 ### Claude Code
 
 ```bash
-git clone https://github.com/shimo4228/claude-skill-authorship-strategy
-cp -r claude-skill-authorship-strategy/skills/authorship-strategy ~/.claude/skills/authorship-strategy
+git clone https://github.com/shimo4228/authorship-strategy-skill
+cp -r authorship-strategy-skill/skills/authorship-strategy ~/.claude/skills/authorship-strategy
 ```
 
 No runtime dependencies. The skill is documentation-only; it shapes agent judgment by being loaded into the agent's rule set.
@@ -52,19 +52,19 @@ The framework's strongest claim is that the three axes are not independent dimen
 
 | Concern | Use this instead |
 |---|---|
-| Release-time workflow for DOI-registered repos (verify, tag, deposit, propagate DOI) | [claude-skill-release-doi](https://github.com/shimo4228/claude-skill-release-doi) |
-| llms.txt / llms-full.txt prose design, navigator wording | [claude-skill-llms-txt-writer](https://github.com/shimo4228/claude-skill-llms-txt-writer) |
-| JSON-LD knowledge graph design | [claude-skill-jsonld-knowledge-graph](https://github.com/shimo4228/claude-skill-jsonld-knowledge-graph) |
-| Cross-document drift audits | [claude-skill-context-sync](https://github.com/shimo4228/claude-skill-context-sync) |
+| Release-time workflow for DOI-registered repos (verify, tag, deposit, propagate DOI) | [release-doi](https://github.com/shimo4228/release-doi) |
+| llms.txt / llms-full.txt prose design, navigator wording | [llms-txt-writer](https://github.com/shimo4228/llms-txt-writer) |
+| JSON-LD knowledge graph design | [jsonld-knowledge-graph](https://github.com/shimo4228/jsonld-knowledge-graph) |
+| Cross-document drift audits | [context-sync](https://github.com/shimo4228/context-sync) |
 | Article / blog post writing | [claude-skill-writing-ecosystem](https://github.com/shimo4228/claude-skill-writing-ecosystem) |
 
 ## Related research and skills
 
 - **Doctrine repository**: [authorship-strategy](https://github.com/shimo4228/authorship-strategy) — the normative framework, five tactical ADRs, and empirical baseline this skill is the operational form of
 - **Peer components** (other component skills of the same framework):
-  - [claude-skill-release-doi](https://github.com/shimo4228/claude-skill-release-doi) — release-time workflow operationalizing the identifier-federation triplet (ADRs 0001-0003)
-  - [claude-skill-llms-txt-writer](https://github.com/shimo4228/claude-skill-llms-txt-writer) — operationalizes Layer 4 tactic 7's Answer.AI `llms.txt` convention
-  - [claude-skill-jsonld-knowledge-graph](https://github.com/shimo4228/claude-skill-jsonld-knowledge-graph) — operationalizes Layer 4 tactic 7's JSON-LD knowledge graph
+  - [release-doi](https://github.com/shimo4228/release-doi) — release-time workflow operationalizing the identifier-federation triplet (ADRs 0001-0003)
+  - [llms-txt-writer](https://github.com/shimo4228/llms-txt-writer) — operationalizes Layer 4 tactic 7's Answer.AI `llms.txt` convention
+  - [jsonld-knowledge-graph](https://github.com/shimo4228/jsonld-knowledge-graph) — operationalizes Layer 4 tactic 7's JSON-LD knowledge graph
 - **Sibling research lines** (at the research-program level): [Agent Knowledge Cycle (AKC)](https://github.com/shimo4228/agent-knowledge-cycle), [Contemplative Agent](https://github.com/shimo4228/contemplative-agent), [Agent Attribution Practice (AAP)](https://github.com/shimo4228/agent-attribution-practice)
 
 > **Terminology note.** This ecosystem reserves *sibling* for research-line-level peers; at the component-skill level the term *peer component* is used instead.

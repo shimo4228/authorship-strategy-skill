@@ -28,7 +28,7 @@ The skill is single-author normative and applies only to the author's own DOI-ta
 
 | Skill | Role | When |
 |---|---|---|
-| `claude-skill-release-doi` | Release workflow | After this skill determines an artifact is in scope, the release workflow handles the deposit |
-| `claude-skill-llms-txt-writer` | AI-facing documentation prose | At documentation-design time |
-| `claude-skill-jsonld-knowledge-graph` | JSON-LD knowledge graph | When the artifact has stable concept-level structure |
-| `claude-skill-context-sync` | Cross-document drift audits | Maintain phase |
+| `release-doi` | Release workflow | After this skill determines an artifact is in scope, the release workflow handles the deposit |
+| `llms-txt-writer` | AI-facing documentation prose | At documentation-design time |
+| `jsonld-knowledge-graph` | JSON-LD knowledge graph | When the artifact has stable concept-level structure |
+| `context-sync` | Cross-document drift audits | Maintain phase |
