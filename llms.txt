@@ -4,7 +4,7 @@
 
 ## Core documentation
 
-- [SKILL.md](skills/authorship-strategy/SKILL.md): full skill specification — trigger conditions, three-axis inversion as core principle, four-layer judgment framework, eleven-item judgment checklist, prohibited and encouraged actions, scope-limiting conditions
+- [SKILL.md](skills/authorship-strategy/SKILL.md): full skill specification — trigger conditions, three-axis inversion as core principle, four-layer judgment framework, twelve-item judgment checklist, prohibited and encouraged actions, scope-limiting conditions
 - [README.md](README.md): human-facing narrative (when to use, install, how it works, key concept)
 - [CHANGELOG.md](CHANGELOG.md): release notes
 

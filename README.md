@@ -42,7 +42,7 @@ The skill body is a standard markdown file with a YAML frontmatter header. Adapt
 2. **Three-axis inversion as the core principle** — value source (scarcity → diffusion), validation mechanism (exclusivity → derivation), network effect (enclosure → openness). The three axes co-vary; mixing axes is internally inconsistent.
 3. **Four-layer judgment stack** — Authenticity (Layer 1, the value) → Attribution Diffusion (Layer 2, the strategy) → Idea vs Scaffold (Layer 3, the prediction) → Tactics (Layer 4, the decisions). Each layer is downstream of the layer above; tactical decisions justified at Layer 4 must trace back to Layer 1.
 4. **Prohibited and encouraged actions** — the skill blocks proposing monetization strategies, exclusionary competitive positioning, market-driven concept dilution, sensational framing, and over-scoped origin claims. It encourages DOI-citable structures, distinctive terminology coinage, abstract-doctrine-plus-worked-implementation pairs, friction-minimized adoption paths, and permissive licensing.
-5. **Judgment checklist** — eleven yes/no questions the agent runs against every proposal in the framework's trigger scope.
+5. **Judgment checklist** — twelve yes/no questions the agent runs against every proposal in the framework's trigger scope.
 
 ## Key concept: three-axis inversion is structural, not stylistic
 

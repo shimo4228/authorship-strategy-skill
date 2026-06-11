@@ -10,11 +10,11 @@ All notable changes to this project will be documented in this file.
 
 ### What it does
 
-A Claude Code skill that loads the four-layer judgment framework for *authorship strategy under AI-mediated diffusion* into an LLM-based coding agent's rule set. Provides the operational form of the [`authorship-strategy`](https://github.com/shimo4228/authorship-strategy) research line: trigger conditions, three-axis inversion, four-layer judgment stack, prohibited and encouraged actions, and an eleven-item judgment checklist.
+A Claude Code skill that loads the four-layer judgment framework for *authorship strategy under AI-mediated diffusion* into an LLM-based coding agent's rule set. Provides the operational form of the [`authorship-strategy`](https://github.com/shimo4228/authorship-strategy) research line: trigger conditions, three-axis inversion, four-layer judgment stack, prohibited and encouraged actions, and a twelve-item judgment checklist.
 
 ### Components
 
-- `skills/authorship-strategy/SKILL.md` — the skill body. Specifies trigger conditions, the three-axis inversion (scarcity → diffusion / exclusivity → derivation / enclosure → openness), the four-layer judgment stack (Authenticity → Attribution Diffusion → Idea vs Scaffold → Tactics), the catalogues of prohibited and encouraged actions, and the eleven-question judgment checklist.
+- `skills/authorship-strategy/SKILL.md` — the skill body. Specifies trigger conditions, the three-axis inversion (scarcity → diffusion / exclusivity → derivation / enclosure → openness), the four-layer judgment stack (Authenticity → Attribution Diffusion → Idea vs Scaffold → Tactics), the catalogues of prohibited and encouraged actions, and the twelve-question judgment checklist (the twelfth item — vocabulary discipline: coin sparingly, anchor densely — follows authorship-strategy ADR-0010).
 
 ### Scope
 
