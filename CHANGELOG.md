@@ -4,17 +4,24 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Added
+
+- Layer 4 tactic: intrinsic identifier layer — SWHID (ISO/IEC 18670) complementing the extrinsic DOI layer; release-time archival in a content-addressed software archive (Software Heritage), with SWHID as the substitute priority-claim mechanism for DOI-impractical genres (authorship-strategy ADR-0013)
+- Layer 4 tactic: citation-graph federation — machine-readable citation edges (`.zenodo.json` `references` + Wikidata P2860) whenever external literature is cited, making citations visible to scholarly citation graphs and cited researchers
+- Layer 4 tactic: link-index-only contributions to external collections, with a four-condition pre-submission host audit (corporate ownership / absence of an open license / content-vendoring structure / paid-product funnel) and a standing withdrawal rule (authorship-strategy ADR-0012)
+- Judgment checklist extended from twelve to fourteen items: machine-readable citation edges and link-index host audit added; the DOI-citable item amended with the SWHID substitute branch
+
 ### Planned
 
 - Initial public release.
 
 ### What it does
 
-A Claude Code skill that loads the four-layer judgment framework for *authorship strategy under AI-mediated diffusion* into an LLM-based coding agent's rule set. Provides the operational form of the [`authorship-strategy`](https://github.com/shimo4228/authorship-strategy) research line: trigger conditions, three-axis inversion, four-layer judgment stack, prohibited and encouraged actions, and a twelve-item judgment checklist.
+A Claude Code skill that loads the four-layer judgment framework for *authorship strategy under AI-mediated diffusion* into an LLM-based coding agent's rule set. Provides the operational form of the [`authorship-strategy`](https://github.com/shimo4228/authorship-strategy) research line: trigger conditions, three-axis inversion, four-layer judgment stack, prohibited and encouraged actions, and a fourteen-item judgment checklist.
 
 ### Components
 
-- `skills/authorship-strategy/SKILL.md` — the skill body. Specifies trigger conditions, the three-axis inversion (scarcity → diffusion / exclusivity → derivation / enclosure → openness), the four-layer judgment stack (Authenticity → Attribution Diffusion → Idea vs Scaffold → Tactics), the catalogues of prohibited and encouraged actions, and the twelve-question judgment checklist (the twelfth item — vocabulary discipline: coin sparingly, anchor densely — follows authorship-strategy ADR-0010).
+- `skills/authorship-strategy/SKILL.md` — the skill body. Specifies trigger conditions, the three-axis inversion (scarcity → diffusion / exclusivity → derivation / enclosure → openness), the four-layer judgment stack (Authenticity → Attribution Diffusion → Idea vs Scaffold → Tactics), the catalogues of prohibited and encouraged actions, and the fourteen-question judgment checklist (the vocabulary-discipline item follows authorship-strategy ADR-0010; the link-index audit item follows ADR-0012; the SWHID substitute branch follows ADR-0013).
 
 ### Scope
 

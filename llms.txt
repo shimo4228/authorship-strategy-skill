@@ -4,7 +4,7 @@
 
 ## Core documentation
 
-- [SKILL.md](skills/authorship-strategy/SKILL.md): full skill specification — trigger conditions, three-axis inversion as core principle, four-layer judgment framework, twelve-item judgment checklist, prohibited and encouraged actions, scope-limiting conditions
+- [SKILL.md](skills/authorship-strategy/SKILL.md): full skill specification — trigger conditions, three-axis inversion as core principle, four-layer judgment framework, fourteen-item judgment checklist, prohibited and encouraged actions, scope-limiting conditions
 - [README.md](README.md): human-facing narrative (when to use, install, how it works, key concept)
 - [CHANGELOG.md](CHANGELOG.md): release notes
 
@@ -24,13 +24,13 @@ The three axes are *not independent*: a strategy mixing axes (enclosure with der
 
 ## Doctrine repository
 
-- [authorship-strategy](https://github.com/shimo4228/authorship-strategy): the normative framework, five tactical ADRs, empirical baseline, glossary, manifesto
+- [authorship-strategy](https://github.com/shimo4228/authorship-strategy): the normative framework, thirteen tactical ADRs, empirical baseline, glossary, manifesto
 
 ## Peer components
 
 Other component skills of the same framework:
 
-- [release-doi](https://github.com/shimo4228/release-doi): release-time workflow operationalizing the framework's identifier-federation triplet (ADRs 0001-0003)
+- [release-doi](https://github.com/shimo4228/release-doi): release-time workflow operationalizing the framework's identifier-federation triplet (ADRs 0001-0003) and the intrinsic-identifier archival step (ADR-0013)
 - [llms-txt-writer](https://github.com/shimo4228/llms-txt-writer): operationalizes Layer 4 tactic 7's Answer.AI `llms.txt` convention
 - [jsonld-knowledge-graph](https://github.com/shimo4228/jsonld-knowledge-graph): operationalizes Layer 4 tactic 7's JSON-LD knowledge graph
 
@@ -45,9 +45,10 @@ Terminology: *sibling* is reserved for research-line-level peers; at the compone
 
 ## Sibling research lines
 
-The framework is one of four DOI-registered research lines in the author's research program:
+The framework is one of five DOI-registered research lines in the author's research program:
 
 - [authorship-strategy](https://github.com/shimo4228/authorship-strategy)
 - [agent-knowledge-cycle (AKC)](https://github.com/shimo4228/agent-knowledge-cycle) — DOI 10.5281/zenodo.19200726
 - [contemplative-agent](https://github.com/shimo4228/contemplative-agent) — DOI 10.5281/zenodo.19212118
 - [agent-attribution-practice (AAP)](https://github.com/shimo4228/agent-attribution-practice) — DOI 10.5281/zenodo.19652013
+- [attention-not-self](https://github.com/shimo4228/attention-not-self) — DOI 10.5281/zenodo.20262112
