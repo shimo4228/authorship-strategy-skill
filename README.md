@@ -1,5 +1,7 @@
 # authorship-strategy-skill
 
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/shimo4228/authorship-strategy-skill)
+
 A [Claude Code skill](https://docs.claude.com/en/docs/claude-code/skills) that loads the four-layer judgment framework for **authorship strategy under AI-mediated diffusion** into an LLM-based coding agent's rule set. Provides the operational form (trigger conditions, judgment checklist, prohibited and encouraged actions) of the normative framework articulated in the [`authorship-strategy`](https://github.com/shimo4228/authorship-strategy) research line.
 
 The skill is **scoped to a narrow trigger**: it applies only to the author's own DOI-targeted idea-rescue research repositories, not to general client work or commercial deliverables. Adopting the skill commits the agent to the framework's core principle that authorship strategy under AI-mediated diffusion inverts on three axes (scarcity → diffusion, exclusivity → derivation, enclosure → openness).
