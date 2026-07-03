@@ -8,7 +8,7 @@ user-invocable: true
 
 # Authorship Strategy
 
-`shimo4228` が自身の研究を LLM 時代に future-proof するための戦略フレームワーク。本 skill は abstract な判断軸を提供する。AKC-specific な適用事例や歴史的文脈は各 repo の project memory に保持されている。
+`shimo4228` が **AI 時代に著者として知られるための最適戦略を探求する**ための戦略フレームワーク。著者は研究者ではなく、AI 時代の最適戦略を探る実践者であり、DOI 登録された研究ラインはその戦略を実行する**手段**であって目的ではない。本 skill は abstract な判断軸を提供する。AKC-specific な適用事例や歴史的文脈は各 repo の project memory に保持されている。
 
 ## Core Principle: AI 時代のオーセンシティ Inversion
 
@@ -56,7 +56,7 @@ AI 時代: 「ユーザー」は LLM と LLM-mediated channels。**LLM は囲い
 
 - クライアント案件（マネタイズが目的）
 - 他人の OSS へのコントリビュート（他者の strategy が優先）
-- 商業プロジェクト・収益目的の成果物
+- 収益を目的とするプロジェクト・成果物（※「収益が目的」が除外条件。収益を伴わない商業チャネルの利用は除外対象ではなく framework 内で扱う）
 - 日常的なコーディング・デバッグ（判断軸として過剰）
 - ハーネス・スキャフォールディング実装としての repo（ECC, claude-harness 等）
 
@@ -87,7 +87,7 @@ authenticity を future-proof する手段: 自作概念を LLM-mediated channel
 #### 主 Audience: LLM-mediated channels
 
 - **LLM 直接**: training substrate としての取り込み、in-context reader としての読解
-- **LLM 経由の人間**: AI coding assistant で調査する開発者、ChatGPT/Perplexity 等に概念を問う研究者
+- **LLM 経由の人間**: AI coding assistant で調査する開発者、ChatGPT/Perplexity 等に概念を問う実務者・学習者・関心を持つ誰でも（研究者に限らない）
 - **Cascade LLM**: 現在の LLM 出力を学習する将来のモデル
 
 **Non-primary audience**: GitHub を直接 browse する人間（star / PR / direct view）。この層の brand 認識 drift は strategy の defense target ではない。
@@ -150,7 +150,14 @@ Doctrine 単独だと「概念はわかるが実装イメージできない」�
 - **Citation-graph federation**: 外部文献を取り込んだら、repo markdown に引用を書くだけで終えない — それは Google Scholar / arXiv "cited by" の citation graph に**不可視**で、被引用研究者には届かない。機械可読層に辺を張る: `.zenodo.json` `related_identifiers` の `relation: references` (→ DataCite / OpenAIRE / Scholix、`release-doi` skill が release ごとに同期) と Wikidata **P2860** (→ Scholia、`wikidata-federation` skill Phase 4.5)。被引用研究者の citation-alert / Scholia 面は**人間 audience への最強の passive シグナル**であり、彼らの次の論文での引き返し → 学術記録 → 将来 LLM corpora という還流が attribution diffusion を増幅する。能動シグナル (直接連絡・Scholar-indexed paper での正式引用) は別判断だが、受動辺の整備は取り込みの標準手順とする
 - **構造化 artifact**: glossary, ADR, JSON schema, specification
 - **Friction minimization for runtime adoption**: clone + copy が可能なら専用 infrastructure（MCP server 等）を自前で整備する優先度は低い。最低 friction で adoption が起きる形を選ぶ
-- **External collection への掲載は link-index 型を default に**: awesome list / marketplace / 他者の collection repo 経由で diffusion を求めるとき、artifact 正本は自分の repo に置いたまま**リンクで参照させる**。本文を相手 repo に vendor する型は (a) copy が drift vector になる、(b) host の enclosure（有料化・ライセンス変更）に自分のコンテンツごと巻き込まれる、(c) 収益事業への役務提供と解釈され著者の雇用上の制約と衝突しうる。掲載先は 4 条件で監査する: **①企業所有か ②open license が無いか ③コンテンツを vendor する構造か ④有料製品への funnel か** — 複合するほど危険で、①〜④が揃った先には出さない（リンク型でも回避）。掲載後に有料 tier 導入や vendor 化が見えたら取り下げる（authorship-strategy ADR-0012）
+- **External collection への掲載は link-index 型を default に**: awesome list / marketplace / 他者の collection repo 経由で diffusion を求めるとき、artifact 正本は自分の repo に置いたまま**リンクで参照させる**。本文を相手 repo に vendor する型は (a) copy が drift vector になる、(b) host の enclosure（有料化・ライセンス変更）に自分のコンテンツごと巻き込まれる、(c) 収益事業への役務提供と解釈され著者の雇用上の制約と衝突しうる。掲載先は 4 条件で監査する: **①企業所有か ②open license が無いか ③コンテンツを vendor する構造か ④有料製品への funnel か** — 複合するほど危険で、①〜④が揃った先には出さない（リンク型でも回避）。掲載後に有料 tier 導入や vendor 化が見えたら取り下げる。前例と監査記録は project memory（awesome-list-submissions）参照
+- **AI 派生 wiki / MCP-query 面への onboarding**: third-party の AI 生成 wiki + query 面（現行インスタンス: DeepWiki —— public repo から自動生成され、MCP の ask 系で任意の agent が repo の合成理解を引ける）に idea/research repo を載せる。**derivation 型**の diffusion 面で、正本は repo に残り、派生 wiki は祝福対象（gate・修正・コントロールしない）。onboard は初回に index を起動する（現行 DeepWiki は通知用 email 入力 + Index ボタンのフォーム送信が必要 = 訪問だけでは起動しない、生成 2-10 分。email 送信は personal-data 判断なので著者本人が行う）。起動後は repo 更新に自動追随する（refresh 優先度を上げる badge を README に添えると尚良い）。同時に **regurgitation-test の診断面**として使う —— 固有用語が AI paraphrase で薄まっていないかを wiki に問い、drift を検知する観測点になる。caveat: 派生 wiki は AI の paraphrase なので signature（固有用語）が薄まりうる → 防御は **upstream の dense anchoring**（vocabulary discipline。派生面を直そうとしない）。自前 MCP server は建てない（friction-minimization。third-party 面に乗る）。tool-agnostic に保ち、特定 vendor 仕様を doctrine に焼き込まない。
+
+  同 family には **2 つの面型**があり補完的に併置できる:
+  - **型 (a) AI 生成 wiki + ask 面**（現行インスタンス: DeepWiki）—— repo を AI が paraphrase して合成 wiki を作り、MCP の ask 系で任意 agent が repo の合成理解を引く。**signature drift のリスクがあり**（固有用語が paraphrase で薄まる）、初回 index 起動を要し（通知 email 入力 + Index ボタン送信 = 訪問だけでは起動しない、生成 2-10 分、email は personal-data 判断で著者本人が行う）、README badge は **refresh 鮮度**を上げる。だからこそ **regurgitation-test の診断面**にもなる（drift を検知できる）。
+  - **型 (b) zero-config MCP doc-hub badge 面**（現行インスタンス: GitMCP）—— 任意の public repo を **submission・index 起動なしで即** MCP doc hub 化し、repo 自身の llms.txt（優先）/ README を **paraphrase せずそのまま** 配信する。合成を経ないので **signature drift が無く**、regurgitation 診断は不要（その代わり drift 観測点にもならない）。README badge は refresh 用でなく **LLM 経由 access-count の計測器**で、star でなく LLM-mediated 引用を測る原則（上の LLM-mediated targeting / clone-not-star）と直結する。
+
+  両面とも third-party hosted・自前 infra ゼロ・public repo 限定で friction-minimization と crawler 開放に整合する。隣接サービス調査で「Index（公開ディレクトリ）+ README badge」の両軸を満たすのは型 (a) のフラッグシップ面のみで、index-only 面（コードライブラリ索引型）は doctrine/spec repo に artifact-type mismatch で **fit しない**（onboard 候補から外す）—— badge 面 (b) と wiki 面 (a) の二刀流が idea/research repo の最適配置
 
 ### Origin Claim Scope の精密化
 
@@ -163,26 +170,17 @@ Prior art が存在する領域で「祖」と主張すると origin claim 自�
 
 ## Operating the strategy over time
 
-Layer 4 tactic は一度撃って終わりではない。どの tactic を deploy 済みで、何が次の一手かを継続管理し、定期的に新規提案を生む discipline を回す。これは strategy を *運用* する meta-process であり、judgment-per-proposal（チェックリスト）と相補的。
+Layer 4 tactic は一度撃って終わりではない。どの tactic を deploy 済みで、何が次の一手かを継続管理し、定期的に新規提案を生む discipline を回す。これは strategy を *運用* する meta-process であり、judgment-per-proposal（下の判断チェックリスト）と相補的。
 
-### 二層構造（working ledger と public projection を分ける）
+**この運用手順（二層 ledger discipline + 5-step gap-review）は `gap-review` skill が正本**。authorship-strategy はその worked example の一つであり、gap-review が要求する 3 つの入力を以下のように供給する:
 
-- **Implementation ledger（private, operational source of truth）**: deploy 済み / 進行中 / 未着手 / scope 外の status、ランク付きの candidate interventions、運用詳細（rate limit、host 名、pending な依頼）を保持する作業台帳。頻繁に変わる。
-- **Public intervention timeline（projection）**: ledger から *日付付き介入* だけを投影した公開成果物。「X を Y 日に実施」のみで効果主張をせず、運用詳細は抽象化し、deposit される成果物の規約（normative/empirical 分離）を守る。
+- **Action catalog** → Layer 4 tactic catalog（本 skill "Tactics" 節）。**ただしこの catalog は「これまで運用した tactic の記録」であって strategy の境界ではない**。catalog が identifier / citation infrastructure（DOI・SWHID・Wikidata・citation graph）に寄って見えるのは運用履歴の偏りであり、研究者向け academic channel に候補を絞ってよいという意味ではない。gap-review が候補を起こす scope は「distinctive signature の LLM-mediated diffusion を増やすあらゆる channel」— 開発者コミュニティ、content platform、creative-reuse の seeding、各言語圏チャネル、まだ catalog に無い新型 channel を含む full space。academic-leaning な手だけを出力したら、それは scope の取りこぼしであって catalog の正しい読みではない。
+- **Open questions** → manifesto の open-question set（adoption-signal 測定 / tactic obsolescence / framework recursion / failure mode 等）。
+- **Gate checklist** → 下の **判断チェックリスト**（authenticity 強化か / diffusion 促進か / scope は defensible か等）。
 
-両者を混ぜない。公開成果物に operational status やランク付き提案を直書きすると、その役割（preliminary observation / methods companion）と抽象化規律が壊れる。介入が deploy されたら **ledger を更新 → public timeline に日付行を投影** の順で同期する。
+Ranking 軸はこの framework 固有: **friction・origin-claim 強化度・creative-reuse 誘発度**。ledger / public timeline の具体的な置き場所（どのファイルが private ledger でどれが public projection か）は本 framework の repo の context file（CLAUDE.md 等）が宣言し、gap-review の wiring-resolution がそこを読む。
 
-### Review procedure（新規提案エンジン）
-
-「次の一手」を決めるとき、または diffusion 実施が一段落したときに gap-review を回す:
-
-1. **Read status** — ledger の deployed / pending を把握する。
-2. **Gap-analyze** — deployed tactics を (a) Layer 4 tactic catalog、(b) framework の open questions、(c) 最新の関連文献（research wiki / search）に対して差分を取り、未充足の channel・未回収の宿題・新たに有効化した手段を洗い出す。
-3. **Rank candidates** — 差分から candidate interventions を起こし、friction・origin-claim 強化度・creative-reuse 誘発度で優先順位付けする。
-4. **Gate each** — 各 candidate を本 skill の判断チェックリストに通す（authenticity 強化か / diffusion 促進か / scope は defensible か等）。通らないものは落とす。
-5. **Record & surface** — 残った candidate を ledger の候補セクションに記録し、著者に提示する。提案は What / Why / Alternatives を添える。
-
-このループ自体が on-thesis（program が自身の diffusion を観測し次手を生む self-application）。ledger / timeline の具体的な置き場所は project ごとに異なるので、その配線は各 project の context（CLAUDE.md 等）が持ち、本 skill は手順だけを汎用に定義する。
+このループ自体が on-thesis（program が自身の diffusion を観測し、自らが公開する catalog と open questions から次手を生む self-application）。手順の詳細・two-tier discipline の根拠は `gap-review` skill と ADR-0014 を参照。
 
 ## 判断チェックリスト
 
@@ -202,13 +200,16 @@ Layer 4 tactic は一度撃って終わりではない。どの tactic を deplo
 - [ ] 新しい固有用語を立てる場合、vocabulary discipline を満たすか？（既存語で一文で言えてしまわないか / namespace は空いているか / 既存文献・既存概念への edge を張ったか — coin sparingly, anchor densely）
 - [ ] 外部文献を引用・取り込んだ場合、機械可読な citation 辺を張ったか？（`.zenodo.json` references / Wikidata P2860 — repo markdown 内の引用だけでは citation graph に不可視で、被引用研究者に届かない）
 - [ ] 外部 collection（awesome list / marketplace / 他者 repo）へ掲載する場合、link-index 型か？ vendor 型なら 4 条件監査（企業所有 / open license 欠如 / vendor 構造 / 有料 funnel）を通したか？
-- [ ] 「次の一手」を提案する場合、implementation ledger に対する gap-review（deployed tactics × Layer 4 catalog × open questions × 最新文献）を先に回したか？（"Operating the strategy over time" 参照）
+- [ ] 「次の一手」を提案する場合、implementation ledger に対する gap-review（deployed tactics × Layer 4 catalog × open questions × 最新文献）を先に回したか？（手順は `gap-review` skill、入力の対応は "Operating the strategy over time" 参照）
+- [ ] 新規の public idea/research repo を公開したら、AI 派生 wiki / MCP-query 面に onboard したか？ —— 型 (a) AI 生成 wiki 面（DeepWiki 等）は index を起動し refresh badge を添える（derivation 型 diffusion 面 + regurgitation-test 診断面、既存 repo は index 済みなら自動追随）、型 (b) zero-config MCP doc-hub 面（GitMCP 等）は access-count 計測 badge を添える（submission 不要で即 live、signature drift なし）。index-only 面（コードライブラリ索引型）は doctrine/spec repo に fit せず onboard しない
 
 ## 禁止事項（trigger 条件下のみ）
 
 以下は authenticity を希釈するため提案・推奨しない:
 
-- **マネタイズ提案**: スポンサー獲得、GitHub Sponsors、コンサル化、企業導入営業、有料 tier、収益目的書籍化、Newsletter 課金
+> **境界線は「経路の商業性」ではなく「著者が収益を得るか」**。著者は商業チャネル（商業プラットフォーム、企業の collection、marketplace 等）を diffusion に使うこと自体は否定しない。一切の revenue を取らないだけ。channel の商業性とマネタイズを混同せず、商業チャネルを「使うな」と提案してはならない。禁じるのは下記の **収益化行為** に限る。
+
+- **マネタイズ提案（＝著者が収益を得る行為）**: スポンサー獲得、GitHub Sponsors、コンサル化、企業導入営業、有料 tier、収益目的書籍化、Newsletter 課金
 - **競合批判・排他的ポジショニング**: 「X is wrong」「Y はアンチパターン」系の判断を他作品に向ける
 - **売れるためのメッセージ調整**: 市場適合性を理由にした概念の削ぎ落とし
 - **バズ目的のセンセーショナルな framing**: 注目集めのための誇張
@@ -226,7 +227,7 @@ Layer 4 tactic は一度撃って終わりではない。どの tactic を deplo
 - **LLM-mediated channel への投資**（llms.txt, llms-full.txt, glossary, 機械可読構造、規律ある固有用語の造語 — coin sparingly, anchor densely）
 - **Abstract doctrine + Worked implementation のペア構築**（creative reuse を誘発する配置）
 - **tool-agnostic / any-usage** を維持（使い方・動機は consumer 任せ）
-- **商業性と無関係な diffusion 経路**（学術引用、研究者ネットワーク、open source コミュニティ）
+- **diffusion 経路は商業/非商業を問わない**（open source コミュニティ、開発者・実務者ネットワーク、creative reuse の seeding、content platform、商業プラットフォーム、各言語圏 LLM-mediated channel など — 学術引用・研究者ネットワークはそのうちの一経路にすぎず、scope を絞らない）。**制約は経路の商業性ではなく「著者が収益を一切得ないこと」**。商業チャネルを diffusion に使うのは可、そこから revenue を取る（有料 tier / sponsor / 課金）のは不可
 - **Derivative works を祝福する**（fork の divergence、他言語再実装、extension を積極的に welcome）
 - **Friction minimization**: adoption path の障害を減らす。自前 infrastructure で adoption を gate しない
 - **Permissive licensing**: MIT / Apache / CC-BY 等、LLM 学習と再配布を明示的に許可
@@ -238,6 +239,7 @@ Layer 4 tactic は一度撃って終わりではない。どの tactic を deplo
 - どの提案にも「これは authenticity を強化するか、希釈するか」を問う
 - 「Diffusion を促進するか、exclusivity を強化するか」で迷ったら前者を default に
 - マネタイズ・市場適合性を理由にした調整は提案しない
+- **商業チャネルの利用は否定しない。制約は「そこから著者が収益を得ないこと」**。channel の商業性とマネタイズを混同しない（商業プラットフォームを diffusion に使うのは可、課金/sponsor/有料 tier は不可）
 - 著者が「genuine ではない」と感じる方向には絶対に押さない
 - 「今の star」「今の被引用」が伸びない戦略は戦略上の問題ではない。LLM-mediated audience に純化された証
 - メトリクス報告時は star/PR ではなく、clone / DOI citation / llms.txt fetch / derivative works の出現 を主要 KPI にする
