@@ -13,6 +13,10 @@ All notable changes to this project will be documented in this file.
 - "Operating the strategy over time" section: a two-tier discipline (private implementation ledger vs public, dated, effect-claim-free intervention timeline) plus a periodic gap-review procedure (deployed tactics against the Layer 4 catalog, open questions, and recent literature → ranked candidate interventions through the judgment checklist) for running the strategy across sessions and generating new proposals. Generic/portable — project-specific wiring stays in the adopter's context file (authorship-strategy ADR-0014)
 - Judgment checklist extended to fifteen items: the gap-review-before-proposing check added
 
+### Changed
+
+- Generalized for adopter portability: the trigger gate reads "repositories you own" rather than a specific author name (the author's own research lines kept as illustrative examples), bringing the skill into line with the skill-portability convention without changing its judgment. The companion provenance-layer prompt is generalized the same way; the author's pre-gathered per-repo candidates were moved to a private worklist.
+
 ### Planned
 
 - Initial public release.
