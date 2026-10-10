@@ -2,26 +2,17 @@
 
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/shimo4228/authorship-strategy-skill)
 
-A [Claude Code skill](https://docs.claude.com/en/docs/claude-code/skills) that loads the four-layer judgment framework for **authorship strategy under AI-mediated diffusion** into an LLM-based coding agent's rule set. Provides the operational form (trigger conditions, judgment checklist, prohibited and encouraged actions) of the normative framework articulated in the [`authorship-strategy`](https://github.com/shimo4228/authorship-strategy) research line.
-
-The skill is **scoped to a narrow trigger**: it applies only to the author's own DOI-targeted idea-rescue research repositories, not to general client work or commercial deliverables. Adopting the skill commits the agent to the framework's core principle that authorship strategy under AI-mediated diffusion inverts on three axes (scarcity → diffusion, exclusivity → derivation, enclosure → openness).
+A [Claude Code skill](https://docs.claude.com/en/docs/claude-code/skills) that loads the judgment framework of the [Authorship Strategy](https://github.com/shimo4228/authorship-strategy) research line into a coding agent: how a maker gets ideas used and keeps the source attached as they spread, including when readers meet them through LLMs. Ask the agent to evaluate a concrete plan against this framework, applied to your current goals (you do not need a strategy document of your own), to check the concerns before you adopt it, or to explain the framework; it answers with the plan's value and concerns, not a pass/fail table.
 
 ## When to use
 
-Apply the skill when **all** of the following hold:
+Ask for one of these, or invoke the skill by name:
 
-- The current repository owner is the skill's adopter (the framework is single-author normative; adapting it to client work or contributions to others' projects is out of scope)
-- The repository is a DOI-targeted or DOI-registered research artifact (Zenodo or comparable archive registration intended or in place)
-- The artifact is an **idea-rescue** in character — specifications, schemas, ADRs, glossaries, or doctrine documents whose value is at the concept level rather than at the implementation level
+- An evaluation of a concrete plan against the framework ("evaluate this plan from the authorship-strategy angle")
+- A check of the concerns before you adopt or carry out a plan
+- An explanation of the existing framework
 
-Skip the skill if any one of those is missing. Specifically, skip for:
-
-- Client work and commercial deliverables (monetization is the goal; the author's identity is not the protected value)
-- Contributions to others' projects (the other author's strategy takes precedence)
-- Operational tooling and scaffolding meant to dissolve (the artifact's diffusion outside its substrate is not desired)
-- Day-to-day coding and debugging (the framework would be over-applied as a judgment instrument)
-
-When in doubt, the framework defers to the author's explicit judgment rather than auto-applying.
+The skill is **scoped to a narrow trigger**: open brainstorming, generating the next idea and day-to-day coding are out of scope, and working inside a research repository is not by itself a reason to apply it. That trigger decides when the agent loads the skill on its own. If you invoke it by name to explore an idea, the purpose of your request still comes first: the skill does not decide the order of ideas, how to classify or count them, or where the conversation ends. In someone else's project, that author's goals and policy take precedence.
 
 ## Install
 
@@ -32,46 +23,67 @@ git clone https://github.com/shimo4228/authorship-strategy-skill
 cp -r authorship-strategy-skill/skills/authorship-strategy ~/.claude/skills/authorship-strategy
 ```
 
-No runtime dependencies. The skill is documentation-only; it shapes agent judgment by being loaded into the agent's rule set.
+No runtime dependencies. The skill is documentation-only; it shapes agent judgment when Claude Code loads it for a matching request. The skill text is written in Japanese; [How it works](#how-it-works) and [The framework in brief](#the-framework-in-brief) summarize it in English.
+
+To try it, describe a plan and ask Claude Code to evaluate it from the authorship-strategy angle, or run `/authorship-strategy` followed by the plan. For example, asked about a plan that puts essays behind a signup wall, the agent explains what the wall would gain and cost, names the premise that differs from the framework's preference for open access and reuse, and keeps both adopting the plan and revising the framework open.
 
 ### Other harnesses
 
-The skill body is a standard markdown file with a YAML frontmatter header. Adapt the install path to your harness's skill convention.
+Copy the whole `skills/authorship-strategy/` folder (SKILL.md, `references/` and `provenance-layer-prompt.md`, a task prompt used only when you explicitly ask for provenance edits to a repository's `graph.jsonld`), not SKILL.md alone: the agent reads these files on demand. SKILL.md is Markdown with a YAML frontmatter header in the Agent Skills format, and its frontmatter declares it portable to other Agent Skills-compatible agents. Adapt the install path to your harness's skill convention.
 
 ## How it works
 
-1. **Trigger gate** — the skill checks four conditions (DOI-targeted, idea-rescue character, author's own work, not commercial) before applying. Misfires are explicitly cheaper than false negatives; when in doubt, the skill defers to author confirmation.
-2. **Three-axis inversion as the core principle** — value source (scarcity → diffusion), validation mechanism (exclusivity → derivation), network effect (enclosure → openness). The three axes co-vary; mixing axes is internally inconsistent.
-3. **Four-layer judgment stack** — Authenticity (Layer 1, the value) → Attribution Diffusion (Layer 2, the strategy) → Idea vs Scaffold (Layer 3, the prediction) → Tactics (Layer 4, the decisions). Each layer is downstream of the layer above; tactical decisions justified at Layer 4 must trace back to Layer 1.
-4. **Prohibited and encouraged actions** — the skill blocks proposing monetization strategies, exclusionary competitive positioning, market-driven concept dilution, sensational framing, and over-scoped origin claims. It encourages DOI-citable structures, distinctive terminology coinage, abstract-doctrine-plus-worked-implementation pairs, friction-minimized adoption paths, and permissive licensing.
-5. **Judgment checklist** — fifteen yes/no questions the agent runs against every proposal in the framework's trigger scope.
-6. **Operating the strategy over time** — a two-tier discipline for running the strategy across sessions: a private implementation ledger (operational status, ranked candidate interventions) versus a public, dated, effect-claim-free intervention timeline, plus a periodic gap-review (deployed tactics against the tactic catalog and open questions) that generates the next proposals.
+1. **Framework as material, not as a gate**: the framework covers the four viewpoints described in [The framework in brief](#the-framework-in-brief). It records judgment from past practice, so fitting a plan into it is not counted as success. When a plan conflicts with the framework, the agent says which premise differs and what is gained and lost; revising the framework is one of the options.
+2. **References read on demand**: [strategy-reference.md](skills/authorship-strategy/references/strategy-reference.md) explains the framework and the options used so far; [action-review.md](skills/authorship-strategy/references/action-review.md) checks only the conditions that apply to a concrete action (purpose and feasibility, sources and outputs, external actions such as posting, registering or publishing, and the record afterwards).
+3. **The answer**: the value and concerns of the plan, keeping grounded facts, current policy and unverified expectations apart. A pass/fail table over every item is deliberately not the default output.
+4. **Records over time**: the skill brings no ledger (a private log of what has been carried out) of its own; recording follows the ledger and public record that your project's maintenance rules declare, and where they declare none, the skill has no ledger to update. When you ask it to check what has been done or what overlaps, the agent reads that ledger; it saves ideas and questions only when you ask for a record. After you carry out an action the skill helped you check, and your project declares a ledger, the agent updates that ledger first; if the project also keeps a public timeline, it adds there only the dated action, without private operating details and without claiming the action had an effect.
 
-## Key concept: three-axis inversion is structural, not stylistic
+## The framework in brief
 
-The framework's strongest claim is that the three axes are not independent dimensions an author can freely mix. A strategy combining enclosure with derivation-welcoming license, or scarcity with crawler-friendly access, is *internally inconsistent* and weaker than either fully consistent strategy. The skill enforces this consistency: a Layer 4 tactic that violates the inversion on any axis is flagged regardless of how locally attractive it appears.
+The framework prefers three inversions of the older strategy for protecting authorship:
+
+| Axis | Preference of this framework |
+|---|---|
+| Where value comes from | an idea being widely used, over scarcity |
+| How validity shows | derivative work and reuse, over exclusivity |
+| How the work spreads | open access and reuse, over enclosure |
+
+These are claims of the framework, not a demonstrated result that publishing always preserves the source; publication, reuse and attribution to the author each have to be checked separately. The four viewpoints the agent uses are **Authenticity** (what the author cares about and how the output relates to it), **Attribution diffusion** (the idea reaching people with its source intact), **Idea / scaffold** (the judgment worth keeping versus the temporary means of carrying it out), and **Tactics** (identifiers, publication formats, ease of reuse, points of contact with readers).
 
 ## What this skill does NOT do
+
+This skill works on its own. The author keeps separate skills for these neighbouring tasks:
 
 | Concern | Use this instead |
 |---|---|
 | Release-time workflow for DOI-registered repos (verify, tag, deposit, propagate DOI) | [release-doi](https://github.com/shimo4228/release-doi) |
+| Keeping a research repo's cited literature in step across its citation layers (docs, `.zenodo.json`, `graph.jsonld`) | [citation-sync](https://github.com/shimo4228/citation-sync) |
 | llms.txt / llms-full.txt prose design, navigator wording | [llms-txt-writer](https://github.com/shimo4228/llms-txt-writer) |
 | JSON-LD knowledge graph design | [jsonld-knowledge-graph](https://github.com/shimo4228/jsonld-knowledge-graph) |
 | Cross-document drift audits | [context-sync](https://github.com/shimo4228/context-sync) |
 | Article / blog post writing | [claude-skill-writing-ecosystem](https://github.com/shimo4228/claude-skill-writing-ecosystem) |
 
-## Related research and skills
+## More from the author
 
-- **Doctrine repository**: [authorship-strategy](https://github.com/shimo4228/authorship-strategy) — the normative framework, five tactical ADRs, and empirical baseline this skill is the operational form of
-- **Peer components** (other component skills of the same framework):
-  - [release-doi](https://github.com/shimo4228/release-doi) — release-time workflow operationalizing the identifier-federation triplet (ADRs 0001-0003)
-  - [llms-txt-writer](https://github.com/shimo4228/llms-txt-writer) — operationalizes Layer 4 tactic 7's Answer.AI `llms.txt` convention
-  - [jsonld-knowledge-graph](https://github.com/shimo4228/jsonld-knowledge-graph) — operationalizes Layer 4 tactic 7's JSON-LD knowledge graph
-- **Sibling research lines** (at the research-program level): [Agent Knowledge Cycle (AKC)](https://github.com/shimo4228/agent-knowledge-cycle), [Contemplative Agent](https://github.com/shimo4228/contemplative-agent), [Agent Attribution Practice (AAP)](https://github.com/shimo4228/agent-attribution-practice)
-
-> **Terminology note.** This ecosystem reserves *sibling* for research-line-level peers; at the component-skill level the term *peer component* is used instead.
+- **[Authorship Strategy](https://github.com/shimo4228/authorship-strategy)**: the doctrine behind this skill, with the thesis, the dated design decisions (ADRs) whose numbers the skill files cite, and the preliminary measurements; concept DOI 10.5281/zenodo.20263316 (the Zenodo identifier that always resolves to the latest version).
+- **[authorship-strategy-rules](https://github.com/shimo4228/authorship-strategy-rules)**: a frozen public record of the same framework as one always-loaded rules file, superseded by this skill.
+- **[shimo4228](https://github.com/shimo4228/shimo4228)**: the author's hub, with Authorship Strategy next to the author's other long-running projects and their DOIs.
 
 ## License
 
 MIT. See [LICENSE](LICENSE).
+
+<details>
+<summary>For tools and AI assistants</summary>
+
+authorship-strategy-skill is a Claude Code skill (Agent Skills format, Markdown only) that helps an author evaluate a concrete plan against the Authorship Strategy framework applied to their current goals, check the concerns before adopting it, or explain the framework, for makers who want their ideas used and passed on with their source including when readers meet them through LLMs. It does not load for open brainstorming, generating the next idea or day-to-day coding, and it returns the plan's value and concerns rather than a pass/fail table.
+
+It exists so that a coding agent can apply the judgment recorded in the Authorship Strategy line without re-deriving it from the thesis on every interaction. The framework was extracted from operating the author's own DOI-registered research repositories; the skill treats it as material for judgment, says which premise differs when a plan conflicts with it, and keeps revising the framework open as an option.
+
+Canonical facts: MIT license; files are `skills/authorship-strategy/SKILL.md`, two reference files under `references/`, and `provenance-layer-prompt.md` (a task prompt used only when someone explicitly asks for provenance edits to a repository's `graph.jsonld`); the skill text is in Japanese. No runtime dependencies and no paid key beyond a Claude Code plan; the frontmatter marks it portable to other Agent Skills-compatible agents and invocable as `/authorship-strategy`. Status: active, synced one way from the author's Claude Code harness by `scripts/sync-from-local.sh` (it never commits); as of 2026-10-10 there is no tagged release, and [CHANGELOG.md](CHANGELOG.md) has not recorded the current rewrite (its Unreleased section still describes the earlier version). ADR numbers inside the skill refer to the ADRs of the authorship-strategy repository, not to the harness's own ADRs; conditions in action-review.md that are specific to the framework's own author are not applied as bans to other authors.
+
+Example: asked to evaluate a plan that puts essays behind a signup wall, SKILL.md directs the agent to explain the plan's value and concerns, name the premise that differs from the framework's preference for open access and reuse, state what would be gained and lost, and keep both adopting the plan and revising the framework on the table.
+
+Links: [SKILL.md](skills/authorship-strategy/SKILL.md) is the skill itself; [strategy-reference.md](skills/authorship-strategy/references/strategy-reference.md) and [action-review.md](skills/authorship-strategy/references/action-review.md) are its references; [inspiration.md](inspiration.md) records where the framework came from; [llms.txt](llms.txt) and [llms-full.txt](llms-full.txt) are the machine-readable summary and reference. The skill belongs to the [Authorship Strategy](https://github.com/shimo4228/authorship-strategy) line, concept DOI [10.5281/zenodo.20263316](https://doi.org/10.5281/zenodo.20263316); cite the framework by that DOI.
+
+</details>
