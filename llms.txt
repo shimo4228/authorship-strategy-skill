@@ -1,54 +1,47 @@
 # authorship-strategy-skill
 
-> A Claude Code skill (documentation-only, MIT, v0.1.0 Unreleased) that loads the four-layer judgment framework for *authorship strategy under AI-mediated diffusion* into an LLM-based coding agent's rule set. Operational form of the [`authorship-strategy`](https://github.com/shimo4228/authorship-strategy) research line. Three-axis inversion (scarcity → diffusion, exclusivity → derivation, enclosure → openness) + four-layer judgment stack (Authenticity → Attribution Diffusion → Idea vs Scaffold → Tactics). Single-author normative; applies only to the author's own DOI-targeted idea-rescue research repositories.
+> A Claude Code skill (documentation-only, MIT, no tagged release yet) that loads the judgment framework of the [`authorship-strategy`](https://github.com/shimo4228/authorship-strategy) research line into an LLM-based coding agent: how a maker gets ideas used and keeps the source attached as they spread, including when readers meet them through LLMs. It evaluates a concrete plan against the framework applied to the user's current goals, checks the concerns before the plan is adopted, or explains the framework, and answers with the plan's value and concerns rather than a pass/fail table. Three inversions (scarcity → wide use, exclusivity → derivation and reuse, enclosure → open access and reuse) and four viewpoints (Authenticity, Attribution diffusion, Idea / scaffold, Tactics) are treated as material for judgment, not as a gate. Status: active, synced one way from the author's Claude Code harness.
 
 ## Core documentation
 
-- [SKILL.md](skills/authorship-strategy/SKILL.md): full skill specification — trigger conditions, three-axis inversion as core principle, four-layer judgment framework, fifteen-item judgment checklist, an "operating the strategy over time" discipline (two-tier ledger + periodic gap-review that generates the next proposals), prohibited and encouraged actions, scope-limiting conditions
-- [README.md](README.md): human-facing narrative (when to use, install, how it works, key concept)
-- [CHANGELOG.md](CHANGELOG.md): release notes
+- [SKILL.md](skills/authorship-strategy/SKILL.md): the skill itself (in Japanese) — when it applies (evaluating a concrete plan, checking concerns before adoption, explaining the framework; not open brainstorming, next-idea generation or day-to-day coding), the framework as material rather than a gate, references read on demand, and how records follow the adopting project's own ledger
+- [strategy-reference.md](skills/authorship-strategy/references/strategy-reference.md): the framework explained — the maker's purpose, the three inversions, the four viewpoints, audience and observation, making sources traceable
+- [action-review.md](skills/authorship-strategy/references/action-review.md): conditions checked only when they apply to a concrete action — purpose and feasibility, sources and outputs, external actions (posting, registering, publishing), the record afterwards
+- [provenance-layer-prompt.md](skills/authorship-strategy/provenance-layer-prompt.md): a task prompt used only when provenance edits to a repository's `graph.jsonld` are explicitly requested
+- [README.md](README.md): human-facing narrative (when to use, install, how it works, the framework in brief)
+- [inspiration.md](inspiration.md): where the framework came from
+- [CHANGELOG.md](CHANGELOG.md): release notes (its Unreleased section still describes the earlier version of the skill)
 
-## Trigger scope
+## When the skill applies
 
-The skill applies when *all* of the following hold:
+The skill loads for a narrow trigger:
 
-- Repository owner is the skill's adopter (single-author normative)
-- Repository is a DOI-targeted or DOI-registered research artifact (Zenodo or comparable archive registration intended or in place)
-- Artifact is idea-rescue in character (specifications, schemas, ADRs, glossaries, doctrine; not implementation or scaffolding)
+- Evaluating a concrete plan against the framework ("evaluate this plan from the authorship-strategy angle")
+- Checking the concerns before adopting or carrying out a plan
+- Explaining the existing framework
 
-Skips for client work, contributions to others' projects, scaffold-only tooling, day-to-day coding.
+It does not load for open brainstorming, generating the next idea, or day-to-day coding, and working inside a research repository is not by itself a reason to apply it. When invoked by name to explore an idea, the purpose of the request comes first. In someone else's project, that author's goals and policy take precedence.
 
 ## Key concept
 
-The three axes are *not independent*: a strategy mixing axes (enclosure with derivation-welcoming license; scarcity with crawler-friendly access) is internally inconsistent and weaker than either consistent strategy. The skill enforces axis consistency: tactical decisions violating any axis are flagged regardless of local attractiveness.
+The framework records judgment from past practice, so fitting a plan into it is not counted as success. When a plan conflicts with the framework, the agent says which premise differs and what is gained and lost; revising the framework is one of the options. The three inversions are claims of the framework, not a demonstrated result that publishing always preserves the source; publication, reuse and attribution to the author are checked separately.
 
 ## Doctrine repository
 
-- [authorship-strategy](https://github.com/shimo4228/authorship-strategy): the normative framework, thirteen tactical ADRs, empirical baseline, glossary, manifesto
+- [authorship-strategy](https://github.com/shimo4228/authorship-strategy): the doctrine behind this skill — thesis, dated design decisions (ADRs) whose numbers the skill files cite, preliminary measurements, glossary, manifesto; concept DOI 10.5281/zenodo.20263316
 
-## Peer components
+## Related skills
 
-Other component skills of the same framework:
+This skill works on its own. The author keeps separate skills for neighbouring tasks:
 
-- [release-doi](https://github.com/shimo4228/release-doi): release-time workflow operationalizing the framework's identifier-federation triplet (ADRs 0001-0003) and the intrinsic-identifier archival step (ADR-0013)
-- [llms-txt-writer](https://github.com/shimo4228/llms-txt-writer): operationalizes Layer 4 tactic 7's Answer.AI `llms.txt` convention
-- [jsonld-knowledge-graph](https://github.com/shimo4228/jsonld-knowledge-graph): operationalizes Layer 4 tactic 7's JSON-LD knowledge graph
-
-Terminology: *sibling* is reserved for research-line-level peers; at the component-skill level the term *peer component* is used.
-
-## Related ecosystem skills
-
+- [release-doi](https://github.com/shimo4228/release-doi): release-time workflow for DOI-registered repos (verify, tag, deposit, propagate DOI)
+- [citation-sync](https://github.com/shimo4228/citation-sync): keeping a research repo's cited literature in step across docs, `.zenodo.json` and `graph.jsonld`
 - [llms-txt-writer](https://github.com/shimo4228/llms-txt-writer): AI-facing documentation prose
 - [jsonld-knowledge-graph](https://github.com/shimo4228/jsonld-knowledge-graph): JSON-LD knowledge graph design
 - [context-sync](https://github.com/shimo4228/context-sync): cross-document drift audits
 - [claude-skill-writing-ecosystem](https://github.com/shimo4228/claude-skill-writing-ecosystem): human-facing writing orchestrator
 
-## Sibling research lines
+## Optional
 
-The framework is one of five DOI-registered research lines in the author's research program:
-
-- [authorship-strategy](https://github.com/shimo4228/authorship-strategy)
-- [agent-knowledge-cycle (AKC)](https://github.com/shimo4228/agent-knowledge-cycle) — DOI 10.5281/zenodo.19200726
-- [contemplative-agent](https://github.com/shimo4228/contemplative-agent) — DOI 10.5281/zenodo.19212118
-- [agent-attribution-practice (AAP)](https://github.com/shimo4228/agent-attribution-practice) — DOI 10.5281/zenodo.19652013
-- [attention-not-self](https://github.com/shimo4228/attention-not-self) — DOI 10.5281/zenodo.20262112
+- [authorship-strategy-rules](https://github.com/shimo4228/authorship-strategy-rules): a frozen public record of the same framework as one always-loaded rules file, superseded by this skill
+- [shimo4228](https://github.com/shimo4228/shimo4228): the author's hub — Authorship Strategy next to the author's other practice lines and their concept DOIs
